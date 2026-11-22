@@ -65,7 +65,8 @@ nav .links a:hover,nav .links a:focus-visible{background:var(--sea)}
 .btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
 .btn.main{background:var(--ink);color:var(--bg)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--mag);outline-offset:3px}
-.map{position:relative;background:var(--sea);border-radius:18px;overflow:hidden;aspect-ratio:1000/440;min-height:260px}
+.map{position:relative;background:var(--sea);border-radius:18px;overflow:hidden;aspect-ratio:1000/440;width:100%}
+@media(max-width:600px){.map{aspect-ratio:auto;height:280px}}
 .map svg{position:absolute;inset:0;width:100%;height:100%}
 .route{stroke-dasharray:8 7;animation:dash 30s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-600}}
@@ -93,6 +94,20 @@ nav .links a:hover,nav .links a:focus-visible{background:var(--sea)}
 .when{font-weight:600;color:var(--brown);font-size:14px;white-space:nowrap}
 .timeline p{color:var(--soft);margin-top:6px;max-width:66ch}
 
+.sub{font-size:18px;margin:26px 0 14px;color:var(--soft);font-weight:600}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.certs.major{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr))}
+.cert{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.cert>a.thumb{display:block;position:relative;background:var(--sea);aspect-ratio:16/10}
+.cert>a.thumb img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:contain;border-radius:4px;box-shadow:0 6px 18px rgb(0 0 0/.12);transition:transform .2s}
+.cert>a.thumb:hover img{transform:scale(1.02)}
+.cert .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cert .org{color:var(--soft);font-size:15px}
+.cert .meta{font-size:14px;color:var(--brown);font-weight:600}
+.cert .links{margin-top:auto;padding-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+.cert .links a{color:var(--mag);font-weight:600;text-decoration:none;font-size:15px;min-height:32px;display:inline-flex;align-items:center}
+.cert .links a:hover{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){.cert>a.thumb img{transition:none}}
 .creds{display:grid;gap:14px}
 .certlink{display:block;margin-top:14px;text-decoration:none;font-weight:600;color:var(--mag)}
 .certlink img{display:block;width:100%;max-width:360px;height:auto;border-radius:8px;border:1px solid var(--line);margin-bottom:8px}
@@ -129,6 +144,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="links">
       <a href="#expertise">Expertise</a>
       <a href="#journey">Journey</a>
+      <a href="#credentials">Credentials</a>
       <a href="#toolkit">Toolkit</a>
       <a href="#travel">Travel</a>
       <a href="#contact">Contact</a>
@@ -228,32 +244,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="band" id="toolkit">
-  <div class="wrap two">
-    <div>
-      <p class="kicker">Toolkit</p>
-      <h2>Tools and standards I work with</h2>
-      <div class="tools" id="tools"></div>
-    </div>
-    <div>
-      <p class="kicker">Credentials</p>
-      <h2>Qualifications</h2>
-      <div class="creds">
-        <div class="card">
-          <h3>CPA Professional (UK) — Associate member</h3>
-          <p>Associate membership, CPAPRO (UK), 2026.</p>
-        </div>
-        <div class="card">
-          <h3>International Financial Reporting Diploma</h3>
-          <p>The Association of Accounting Professionals (AAP UK), delivered by the Academy of Finance and Management Bangladesh. April–June 2026 · Result: <strong>Higher Distinction</strong>.</p>
-          <a class="certlink" href="certificate-ifr-diploma.jpg"><img src="certificate-ifr-diploma.jpg" alt="International Financial Reporting Diploma certificate" width="1296" height="916" loading="lazy"><span>View certificate</span></a>
-        </div>
-      </div>
-    </div>
+<section class="band" id="credentials">
+  <div class="wrap">
+    <p class="kicker">Credentials</p>
+    <h2>Qualifications and certificates</h2>
+    <h3 class="sub">Professional qualifications</h3>
+    <div class="certs major" id="certs-major"></div>
+    <h3 class="sub">Professional development</h3>
+    <div class="certs" id="certs-minor"></div>
   </div>
 </section>
 
-<section class="band alt" id="travel">
+<section class="band alt" id="toolkit">
+  <div class="wrap">
+    <p class="kicker">Toolkit</p>
+    <h2>Tools and standards I work with</h2>
+    <div class="tools" id="tools"></div>
+  </div>
+</section>
+
+<section class="band" id="travel">
   <div class="wrap travel">
     <div>
       <p class="kicker">Beyond work</p>
@@ -321,6 +331,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   ];
   document.getElementById('timeline').innerHTML = jobs.map(([w,r,o,d,now]) =>
     `<li class="${now?'now':''}"><span class="when">${w}</span><h3>${r}</h3>${o?`<strong style="font-weight:600">${o}</strong>`:''}<p>${d}</p></li>`).join('');
+
+  const certs = {
+    major: [
+      {img:'certificate-cpa.jpg', t:'Certified Public Accountant — Associate member', o:'The Association of International Certified Public Accountants · CPAPRO UK', m:'Membership ACPA (PRO) · Granted 15 September 2026'},
+      {img:'certificate-ifr-diploma.jpg', t:'International Financial Reporting Diploma', o:'The Association of Accounting Professionals (AAP UK) · Academy of Finance and Management Bangladesh', m:'April–June 2026 · Higher Distinction'}
+    ],
+    minor: [
+      {img:'certificate-esg.jpg', t:'Diploma in Sustainability and ESG', o:'Udemy', m:'August 2026 · 11 hours', v:'https://ude.my/UC-780dd2d9-8f75-4659-a459-821cf82c1492'},
+      {img:'certificate-fintech.jpg', t:'FinTech for Financial Inclusion', o:'Udemy · Global FinTech Academy', m:'August 2026 · 4 hours', v:'https://ude.my/UC-481caf2f-9021-4e5b-a227-dcc477bdc32a'},
+      {img:'certificate-bridge.jpg', t:'BRIDGE Digital Skills Programme', o:'Lightful · digital strategy, campaigns, storytelling, measurement and impact', m:'6-month programme · Completed July 2025'}
+    ]
+  };
+  const card = c => `<article class="cert"><a class="thumb" href="${c.img}" aria-label="View ${c.t} certificate"><img src="${c.img}" alt="${c.t} certificate" loading="lazy"></a><div class="body"><h3>${c.t}</h3><p class="org">${c.o}</p><p class="meta">${c.m}</p><div class="links"><a href="${c.img}">View certificate</a>${c.v?`<a href="${c.v}">Verify online</a>`:''}</div></div></article>`;
+  document.getElementById('certs-major').innerHTML = certs.major.map(card).join('');
+  document.getElementById('certs-minor').innerHTML = certs.minor.map(card).join('');
 
   const tools = ['Advanced Excel','Financial modelling','KPI dashboards','PowerPoint','IFRS / IAS','ISA','COSO internal control','Budgeting & forecasting','Bank & cash reconciliation','PAR & portfolio analysis'];
   document.getElementById('tools').innerHTML = tools.map(t => `<span>${t}</span>`).join('');
