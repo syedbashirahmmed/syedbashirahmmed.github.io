@@ -272,6 +272,25 @@ html.js .reveal.in{opacity:1;transform:none}
 .stamp:hover{transform:rotate(0) scale(1.05);transition:transform .2s}
 @media(max-width:860px){.travel{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.stamp:hover{transition:none}}
+/* compact passport (v2) */
+.pstats{display:flex;gap:28px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.pstats div{display:flex;align-items:baseline;gap:6px}
+.pstats b{font-family:"Source Serif 4",Georgia,serif;font-size:30px;line-height:1;color:var(--brown)}
+.pstats span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.passport .stamps{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.passport .stamp{min-height:60px;padding:8px 6px;border-width:2px}
+.passport .stamp:nth-child(3n){border-width:3px}
+.passport .stamp b{font-size:13.5px}
+.passport .stamp span{font-size:10.5px;margin-top:2px}
+.allplaces{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.allplaces summary{cursor:pointer;list-style:none;font-size:14px;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.allplaces summary::-webkit-details-marker{display:none}
+.allplaces summary::after{content:"+";font-size:18px;line-height:1}
+.allplaces[open] summary::after{content:"−"}
+.allplaces .region{margin-top:12px}
+.allplaces h3{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brown);margin:0 0 3px}
+.allplaces .region p{font-size:14px;line-height:1.55;color:var(--ink);opacity:.85;margin:0}
+@media(max-width:380px){.passport{padding:18px}.passport .stamp b{font-size:12.5px}}
 
 /* ---- expertise v2: structured, brand-consistent ---- */
 #services{gap:18px}
@@ -460,32 +479,24 @@ nav .avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow
       <div class="btns"><a class="btn main" href="https://www.youtube.com/@595bashir">Watch on YouTube · @595bashir</a></div>
     </div>
     <div class="passport">
-      <p class="pcount"><b>30</b> countries visited · a few of the places</p>
-      <ul class="stamps" aria-label="Places visited">
-      <li class="stamp"><b>London</b><span>United Kingdom</span></li>
-      <li class="stamp"><b>Paris</b><span>France</span></li>
-      <li class="stamp"><b>Amsterdam</b><span>Netherlands</span></li>
-      <li class="stamp"><b>Oslo</b><span>Norway</span></li>
-      <li class="stamp"><b>Copenhagen</b><span>Denmark</span></li>
+      <div class="pstats">
+        <div><b>30</b><span>Countries</span></div>
+        <div><b>3</b><span>Continents</span></div>
+      </div>
+      <ul class="stamps" aria-label="Featured places">
+      <li class="stamp"><b>London</b><span>UK</span></li>
       <li class="stamp"><b>Rome</b><span>Italy</span></li>
-      <li class="stamp"><b>Venice</b><span>Italy</span></li>
       <li class="stamp"><b>Istanbul</b><span>Türkiye</span></li>
       <li class="stamp"><b>Bangkok</b><span>Thailand</span></li>
       <li class="stamp"><b>Yangon</b><span>Myanmar</span></li>
-      <li class="stamp"><b>Dhaka</b><span>Bangladesh</span></li>
-      <li class="stamp"><b>Addis Ababa</b><span>Ethiopia</span></li>
       <li class="stamp"><b>Freetown</b><span>Sierra Leone</span></li>
-      <li class="stamp"><b>Reykjavík</b><span>Iceland</span></li>
-      <li class="stamp"><b>Phnom Penh</b><span>Cambodia</span></li>
-      <li class="stamp"><b>Delhi</b><span>India</span></li>
-      <li class="stamp"><b>Uzbekistan</b></li>
-      <li class="stamp"><b>Senegal</b></li>
-      <li class="stamp"><b>Guinea</b></li>
-      <li class="stamp"><b>Belgium</b></li>
-      <li class="stamp"><b>Switzerland</b></li>
-      <li class="stamp"><b>Morocco</b></li>
-      <li class="stamp"><b>Kenya</b></li>
       </ul>
+      <details class="allplaces">
+        <summary>See all countries</summary>
+        <div class="region"><h3>Europe</h3><p>United Kingdom · France · Netherlands · Belgium · Switzerland · Italy · Norway · Denmark · Iceland · Türkiye</p></div>
+        <div class="region"><h3>Asia</h3><p>Bangladesh · India · Thailand · Myanmar · Cambodia · Uzbekistan</p></div>
+        <div class="region"><h3>Africa</h3><p>Sierra Leone · Guinea · Senegal · Morocco · Ethiopia · Kenya</p></div>
+      </details>
     </div>
   </div>
 </section>
