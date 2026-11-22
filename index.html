@@ -20,7 +20,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Syed Bashir Ahmmed","url":"https://syedbashirahmmed.github.io/","image":"https://syedbashirahmmed.github.io/photo.jpg","jobTitle":"Manager, Field Finance","worksFor":{"@type":"Organization","name":"BRAC Microfinance (SL) Limited"},"address":{"@type":"PostalAddress","addressLocality":"Freetown","addressCountry":"Sierra Leone"},"sameAs":["https://www.linkedin.com/in/syed-bashir-ahmmed-635b927b","https://www.youtube.com/@595bashir","https://www.facebook.com/bashir728"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
 /* VOICE: calm, senior, credible (navy, gold and wine palette taken from the suit, tie and certificate seals) - a finance leader who also travels the world
    IDEA: a survey map of a career - Bangladesh to Myanmar to Sierra Leone
@@ -66,7 +66,7 @@ nav .links a:hover,nav .links a:focus-visible{background:var(--sea)}
 .btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
 .btn.main{background:var(--ink);color:var(--bg)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--mag);outline-offset:3px}
-.map{position:relative;background:var(--sea);border-radius:18px;overflow:hidden;aspect-ratio:1000/440;width:100%}
+.map{position:relative;background:var(--sea);border-radius:18px;overflow:hidden;aspect-ratio:1000/300;width:100%}
 @media(max-width:600px){.map{aspect-ratio:auto;height:280px}}
 .map svg{position:absolute;inset:0;width:100%;height:100%}
 .route{stroke-dasharray:8 7;animation:dash 30s linear infinite}
@@ -185,6 +185,48 @@ nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);col
 .cert .links a.vbtn:hover{background:var(--wine);text-decoration:none}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .cert .links a.vbtn{background:var(--gold);color:var(--navy)}}
 :root[data-theme=dark] .cert .links a.vbtn{background:var(--gold);color:var(--navy)}
+
+/* ---- executive scale: calmer type, tighter rhythm ---- */
+body{font-size:15.5px;line-height:1.6}
+.band{padding:clamp(26px,3.6vw,56px) max(5vw,16px)}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(30px,3.6vw,44px);line-height:1.08}
+h2{font-size:clamp(24px,2.5vw,32px);margin-bottom:18px;line-height:1.15}
+h3{font-size:17px;font-weight:700}
+.kicker{font-size:13px;letter-spacing:.02em;margin-bottom:8px}
+.lead{font-size:16px;max-width:58ch}
+nav .wrap{padding:8px max(5vw,16px)}
+nav strong{font-size:15px;font-weight:600}
+nav .links a{font-size:14px;font-weight:500;padding:9px 11px}
+.mono{width:34px;height:34px;font-size:12px}
+.hero{gap:22px}
+.hero-top{gap:28px;align-items:center}
+.photo{width:clamp(78px,7.5vw,100px);border-width:3px}
+.ring{padding:3px}
+.dot{width:12px;height:12px;border-width:2px}
+.who{gap:clamp(14px,2vw,22px)}
+.role{font-size:15px;margin-top:8px}
+.btns{margin-top:18px;gap:10px}
+.btn{min-height:42px;padding:0 18px;font-size:14.5px;border-width:1.5px}
+.map{border-radius:14px}
+.legend div{padding:14px 18px}
+.legend b{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(20px,2vw,26px);font-weight:700}
+.legend span{font-size:13px}
+.card{padding:20px}
+.card p,.cert .org{font-size:14.5px}
+#services .card svg{width:44px;height:44px;padding:10px;border-radius:12px;margin-bottom:12px}
+.timeline li{padding-bottom:24px}
+.when{font-size:13px}
+.sub{font-size:15px;margin:20px 0 12px}
+.cert .body{padding:18px}
+.cert .medal{width:40px;height:40px;border-radius:10px}.cert .medal svg{width:22px;height:22px}
+.cert .links a.vbtn{min-height:36px;font-size:14px;padding:0 14px}
+.tools span{padding:8px 14px;font-size:14px}
+.stamp{font-size:clamp(12px,1.3vw,14px)}
+.clist a,.clist div{padding:14px 18px}.clist strong{font-size:15.5px}
+#services{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){#services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#services{grid-template-columns:1fr}}
 /* lightbox */
 .lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100dvh;margin:0}
 .lb::backdrop{background:rgb(6 14 22/.88);backdrop-filter:blur(4px)}
@@ -239,7 +281,7 @@ nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);col
     </div>
 
     <div class="map" role="img" aria-label="Map of career route: Bangladesh, Myanmar and Sierra Leone">
-      <svg viewBox="0 0 1000 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <svg viewBox="0 72 1000 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
             <path d="M50 0H0V50" fill="none" stroke="currentColor" stroke-opacity=".08"/>
@@ -247,7 +289,7 @@ nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);col
           <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity=".14"/></filter>
           <g id="pin"><path d="M0-34c-11 0-19 8-19 19 0 14 19 34 19 34s19-20 19-34c0-11-8-19-19-19z" fill="var(--mag)"/><circle cy="-15" r="7" fill="var(--land)"/></g>
         </defs>
-        <rect width="1000" height="440" fill="url(#grid)" style="color:var(--ink)"/>
+        <rect y="0" width="1000" height="440" fill="url(#grid)" style="color:var(--ink)"/>
         <!-- West Africa land mass (stylised) -->
         <g filter="url(#sh)">
           <path d="M-20 70 C60 40 180 50 270 90 C330 118 360 170 350 220 C340 270 300 300 250 318 C200 336 160 370 120 400 C70 440 10 450 -20 450Z" fill="var(--land)"/>
@@ -269,12 +311,12 @@ nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);col
         <use href="#pin" x="850" y="205"/>
         <!-- labels in clear space -->
         <g font-family="Inter,sans-serif" font-weight="800" fill="var(--ink)">
-          <text x="118" y="340" font-size="22">Sierra Leone</text>
-          <text x="118" y="363" font-size="15" font-weight="600" fill="var(--brown)">Freetown · today</text>
-          <text x="732" y="262" font-size="22" text-anchor="end">Bangladesh</text>
-          <text x="872" y="262" font-size="22">Myanmar</text>
+          <text x="118" y="340" font-size="17">Sierra Leone</text>
+          <text x="118" y="360" font-size="13" font-weight="600" fill="var(--brown)">Freetown · today</text>
+          <text x="732" y="262" font-size="17" text-anchor="end">Bangladesh</text>
+          <text x="872" y="262" font-size="17">Myanmar</text>
         </g>
-        <g font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="var(--ink)" fill-opacity=".55">
+        <g font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="var(--ink)" fill-opacity=".55">
           <text x="420" y="300">Atlantic · Indian Ocean</text>
         </g>
       </svg>
