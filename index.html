@@ -304,6 +304,9 @@ html.js .reveal.in{opacity:1;transform:none}
 @media(max-width:640px){.ai-card{grid-template-columns:1fr;gap:16px}.ai-card .ai-ic{width:56px;height:56px}.ai-card .ai-ic svg{width:28px;height:28px}}
 nav .avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--gold);flex:none;display:block}
 @media(max-width:600px){nav .avatar{width:34px;height:34px}}
+#services .card{grid-template-rows:auto 1fr;align-content:start}
+#services .card svg{grid-row:1 / span 2;align-self:start}
+#services .card h3{margin:2px 0 0}
 </style>
 </head>
 <body>
@@ -520,15 +523,17 @@ nav .avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow
     shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2"/>',
     chart:'<path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-3" fill="none" stroke="currentColor" stroke-width="2"/>',
     grid:'<path d="M3 4h18v16H3z M3 10h18 M9 4v16" fill="none" stroke="currentColor" stroke-width="2"/>',
+    target:'<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/>',
+    calc:'<path d="M5 3h14v18H5z M8 7h8 M8 12h.01 M12 12h.01 M16 12h.01 M8 16h.01 M12 16h.01 M16 16h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
     people:'<circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6 M16 5a3 3 0 010 6 M18 14c2 1 3 3 3 6" fill="none" stroke="currentColor" stroke-width="2"/>'
   };
   const services = [
-    ['cash','Treasury & donor fund management','Weekly fund planning across area and branch offices, and management of donor funds in line with donor agreements.'],
-    ['doc','Financial & donor reporting','Management, statutory and donor financial reporting in line with IFRS and donor requirements, built for CEOs, Country Directors, boards and donors.'],
-    ['shield','Internal control & audit','Control reviews, reconciliations and audit responses that fix the root cause, not just the finding.'],
-    ['chart','Portfolio quality','Outstanding loan portfolio, PAR and overdue analysis by branch, area and region for MF and SEP projects.'],
-    ['grid','Excel dashboards & automation','Structured, formula-driven workbooks and KPI dashboards that reconcile and update automatically.'],
-    ['people','Training & capacity building','Induction and coaching for branch accounts officers and field finance teams.']
+    ['cash','Microfinance treasury & field finance','Field finance for a microfinance branch network: weekly fund planning, branch balances, transfers, and cash and bank control.'],
+    ['doc','Financial & donor reporting','Management, statutory and donor financial reports in line with IFRS and donor requirements, for CEOs, Country Directors, boards and donors.'],
+    ['calc','Budgeting & forecasting','Annual budgets, forecasts and budget-versus-actual monitoring for branches, programmes and donor-funded NGO projects.'],
+    ['target','Fundraising & donor funds','Financial input to funding proposals, project budgets and donor compliance, and management of donor funds in line with agreements.'],
+    ['shield','Internal control & portfolio quality','Control reviews, reconciliations and audit responses that fix the root cause, with PAR and overdue analysis for MF and SEP portfolios.'],
+    ['people','Staff development & training','Induction, coaching and capacity building for branch accounts officers and field finance teams.']
   ];
   document.getElementById('services').innerHTML = services.map(([i,t,d]) =>
     `<article class="card"><svg viewBox="0 0 24 24" aria-hidden="true">${ic[i]}</svg><h3>${t}</h3><p>${d}</p></article>`).join('');
