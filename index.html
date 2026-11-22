@@ -22,15 +22,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
-/* VOICE: calm, senior, credible - a finance leader who also travels the world
+/* VOICE: calm, senior, credible (navy, gold and wine palette taken from the suit, tie and certificate seals) - a finance leader who also travels the world
    IDEA: a survey map of a career - Bangladesh to Myanmar to Sierra Leone
    PICTURE: stylised map with a magenta route joining the career stops
    COLOUR and TYPE: sea blue, land paper, contour brown, ink, route magenta; Inter 800 + Inter
    LAYOUT: map band full bleed under the name, legend panel for stats, then services, journey, toolkit, travel, contact */
 :root{color-scheme:light dark;
---sea:light-dark(#bfe3ee,#0f2a35);--land:light-dark(#fbfbf2,#16303b);--bg:light-dark(#fbfbf2,#0d1c24);
---ink:light-dark(#13242e,#e8f1f3);--soft:light-dark(#4a5d68,#a9bcc4);--brown:light-dark(#a8551b,#e39a62);
---mag:light-dark(#d6127e,#ff5cae);--line:light-dark(#dfe3d6,#24404c);--card:light-dark(#ffffff,#122631)}
+--sea:light-dark(#c6e0ea,#123445);--land:light-dark(#fbf9f3,#1b3a4c);--bg:light-dark(#faf8f3,#0a1824);
+--ink:light-dark(#0e2233,#eaf1f4);--soft:light-dark(#4d5f6b,#a9bcc6);--brown:light-dark(#9a6a1c,#e2b35f);
+--mag:light-dark(#a3213f,#ff7c98);--line:light-dark(#e4e0d4,#22404f);--card:light-dark(#ffffff,#102636);
+--navy:#0e2233;--navy2:#173a52;--gold:#d9a84e;--wine:#a3213f;--tint:light-dark(#eef4f6,#0f2433)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -133,6 +134,60 @@ nav .links a:hover,nav .links a:focus-visible{background:var(--sea)}
 .note{font-size:13px;opacity:.7;margin-top:14px}
 footer{padding:22px max(5vw,16px);font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* ---- refined look ---- */
+.who>div{flex:1 1 260px}
+nav{background:color-mix(in srgb,var(--navy) 94%,transparent);border-bottom:1px solid rgb(255 255 255/.08);color:#fff}
+nav .mono{background:linear-gradient(135deg,var(--gold),#b07a28);color:var(--navy)}
+nav .links a{color:rgb(255 255 255/.86)}
+nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);color:#fff}
+.hero-band{background:radial-gradient(1200px 500px at 85% -10%,rgb(217 168 78/.22),transparent 60%),radial-gradient(900px 500px at 0% 0%,rgb(163 33 63/.25),transparent 55%),linear-gradient(180deg,var(--navy),var(--navy2));color:#fff;padding-bottom:clamp(36px,5vw,72px)}
+.hero-band .kicker{color:var(--gold)}
+.hero-band h1{color:#fff}
+.hero-band .lead{color:rgb(255 255 255/.8)}
+.hero-band .role{color:rgb(255 255 255/.72)}.hero-band .role strong{color:#fff}
+.hero-band .ring{background:linear-gradient(135deg,var(--gold),var(--wine));box-shadow:0 16px 40px rgb(0 0 0/.35)}
+.hero-band .photo{border-color:var(--navy)}
+.hero-band .dot{border-color:var(--navy)}
+.hero-band .btn{border-color:rgb(255 255 255/.7);color:#fff}
+.hero-band .btn.main{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.hero-band .btn:hover{background:rgb(255 255 255/.1)}.hero-band .btn.main:hover{background:#e6b964}
+.hero-band .map{box-shadow:0 24px 60px rgb(0 0 0/.35);--ink:#0e2233;--land:#fbf9f3;--sea:#c6e0ea;--brown:#9a6a1c;--mag:#a3213f}
+.hero-band .legend{background:rgb(255 255 255/.06);border-color:rgb(255 255 255/.14);backdrop-filter:blur(6px)}
+.hero-band .legend div{border-color:rgb(255 255 255/.14)}
+.hero-band .legend b{color:var(--gold)}
+.hero-band .legend span{color:rgb(255 255 255/.75)}
+.alt{background:var(--tint)}
+.alt .card{background:var(--card)}
+.card,.cert{box-shadow:0 1px 2px rgb(14 34 51/.04),0 8px 24px rgb(14 34 51/.06);transition:transform .2s,box-shadow .2s}
+.card:hover,.cert:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgb(14 34 51/.06),0 16px 36px rgb(14 34 51/.12)}
+#services .card svg{width:52px;height:52px;padding:12px;border-radius:14px;background:color-mix(in srgb,var(--mag) 10%,transparent);color:var(--mag)}
+#services .card{border-top:3px solid transparent;background-image:linear-gradient(var(--card),var(--card)),linear-gradient(90deg,var(--gold),var(--wine));background-origin:border-box;background-clip:padding-box,border-box}
+.timeline:before{border-left-style:solid;border-left-color:color-mix(in srgb,var(--mag) 35%,transparent)}
+.timeline li.now:before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 6px color-mix(in srgb,var(--gold) 25%,transparent)}
+.cert>a.thumb{background:linear-gradient(135deg,var(--navy),var(--navy2));cursor:zoom-in}
+.cert .pill{align-self:flex-start;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--gold) 22%,transparent);color:var(--brown);font-size:13px;font-weight:700}
+.tools span{background:var(--card);box-shadow:0 1px 2px rgb(14 34 51/.05)}
+.stamp{border-color:var(--brown);color:var(--brown)}
+.contact{background:linear-gradient(180deg,var(--navy),#0a1824);color:#fff}
+.contact .lead{color:rgb(255 255 255/.78)}
+.contact h2{color:#fff}
+.clist a,.clist div{border-color:rgb(255 255 255/.16);background:rgb(255 255 255/.04)}
+.clist a:hover{background:rgb(255 255 255/.1);border-color:var(--gold)}
+.clist small{color:var(--gold);opacity:1}
+@media(prefers-reduced-motion:reduce){.card,.cert{transition:none}.card:hover,.cert:hover{transform:none}}
+/* lightbox */
+.lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100dvh;margin:0}
+.lb::backdrop{background:rgb(6 14 22/.88);backdrop-filter:blur(4px)}
+.lb[open]{display:grid;grid-template-rows:auto 1fr auto;color:#fff}
+.lb .bar{display:flex;align-items:center;gap:12px;padding:12px 16px}
+.lb .bar p{flex:1;font-weight:600;font-size:15px}
+.lb button{min-width:44px;min-height:44px;border-radius:999px;border:1px solid rgb(255 255 255/.3);background:rgb(255 255 255/.08);color:#fff;font:600 15px Inter,sans-serif;cursor:pointer;padding:0 16px}
+.lb button:hover{background:rgb(255 255 255/.18)}
+.lb button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.lb .stage{display:grid;place-items:center;padding:0 12px;min-height:0}
+.lb .stage img{max-width:min(1200px,100%);max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 20px 60px rgb(0 0 0/.5);background:#fff}
+.lb .nav{display:flex;justify-content:center;gap:12px;padding:14px}
 </style>
 </head>
 <body>
@@ -152,7 +207,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </nav>
 
-<header class="band">
+<header class="band hero-band">
   <div class="wrap hero">
     <div class="hero-top">
       <div>
@@ -297,6 +352,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
+<dialog class="lb" id="lb" aria-label="Certificate viewer">
+  <div class="bar"><p id="lb-title"></p><button type="button" id="lb-close" aria-label="Close">Close ✕</button></div>
+  <div class="stage"><img id="lb-img" alt=""></div>
+  <div class="nav"><button type="button" id="lb-prev">‹ Previous</button><button type="button" id="lb-next">Next ›</button></div>
+</dialog>
 <footer>
   <div class="wrap"><span>Views expressed here are my own.</span><span>© 2026 Syed Bashir Ahmmed</span></div>
 </footer>
@@ -335,7 +395,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   const certs = {
     major: [
       {img:'certificate-cpa.jpg', t:'Certified Public Accountant — Associate member', o:'The Association of International Certified Public Accountants · CPAPRO UK', m:'Membership ACPA (PRO) · Granted 15 September 2026'},
-      {img:'certificate-ifr-diploma.jpg', t:'International Financial Reporting Diploma', o:'The Association of Accounting Professionals (AAP UK) · Academy of Finance and Management Bangladesh', m:'April–June 2026 · Higher Distinction'}
+      {img:'certificate-ifr-diploma.jpg', t:'International Financial Reporting Diploma', o:'The Association of Accounting Professionals (AAP UK) · Academy of Finance and Management Bangladesh', m:'April–June 2026 · 30 hours', pill:'Higher Distinction'}
     ],
     minor: [
       {img:'certificate-esg.jpg', t:'Diploma in Sustainability and ESG', o:'Udemy', m:'August 2026 · 11 hours', v:'https://ude.my/UC-780dd2d9-8f75-4659-a459-821cf82c1492'},
@@ -343,9 +403,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       {img:'certificate-bridge.jpg', t:'BRIDGE Digital Skills Programme', o:'Lightful · digital strategy, campaigns, storytelling, measurement and impact', m:'6-month programme · Completed July 2025'}
     ]
   };
-  const card = c => `<article class="cert"><a class="thumb" href="${c.img}" aria-label="View ${c.t} certificate"><img src="${c.img}" alt="${c.t} certificate" loading="lazy"></a><div class="body"><h3>${c.t}</h3><p class="org">${c.o}</p><p class="meta">${c.m}</p><div class="links"><a href="${c.img}">View certificate</a>${c.v?`<a href="${c.v}">Verify online</a>`:''}</div></div></article>`;
+  const card = c => `<article class="cert"><a class="thumb" href="${c.img}" aria-label="View ${c.t} certificate"><img src="${c.img}" alt="${c.t} certificate" loading="lazy"></a><div class="body"><h3>${c.t}</h3><p class="org">${c.o}</p>${c.pill?`<span class="pill">${c.pill}</span>`:''}<p class="meta">${c.m}</p><div class="links"><a href="${c.img}">View certificate</a>${c.v?`<a href="${c.v}">Verify online</a>`:''}</div></div></article>`;
   document.getElementById('certs-major').innerHTML = certs.major.map(card).join('');
   document.getElementById('certs-minor').innerHTML = certs.minor.map(card).join('');
+
+  const all = [...certs.major, ...certs.minor];
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbT = document.getElementById('lb-title');
+  let cur = 0;
+  const show = i => { cur = (i + all.length) % all.length; const c = all[cur]; lbImg.src = c.img; lbImg.alt = c.t + ' certificate'; lbT.textContent = c.t + '  (' + (cur+1) + ' of ' + all.length + ')'; };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="certificate-"]');
+    if (!a || !lb.showModal) return;
+    e.preventDefault();
+    show(all.findIndex(c => c.img === a.getAttribute('href')));
+    lb.showModal();
+  });
+  document.getElementById('lb-close').addEventListener('click', () => lb.close());
+  document.getElementById('lb-prev').addEventListener('click', () => show(cur - 1));
+  document.getElementById('lb-next').addEventListener('click', () => show(cur + 1));
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('stage')) lb.close(); });
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
 
   const tools = ['Advanced Excel','Financial modelling','KPI dashboards','PowerPoint','IFRS / IAS','ISA','COSO internal control','Budgeting & forecasting','Bank & cash reconciliation','PAR & portfolio analysis'];
   document.getElementById('tools').innerHTML = tools.map(t => `<span>${t}</span>`).join('');
