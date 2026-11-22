@@ -97,7 +97,7 @@ nav .links a:hover,nav .links a:focus-visible{background:var(--sea)}
 
 .sub{font-size:18px;margin:26px 0 14px;color:var(--soft);font-weight:600}
 .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
-.certs.major{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr))}
+.certs.major{grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr))}
 .cert{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .cert>a.thumb{display:block;position:relative;background:var(--sea);aspect-ratio:16/10}
 .cert>a.thumb img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:contain;border-radius:4px;box-shadow:0 6px 18px rgb(0 0 0/.12);transition:transform .2s}
@@ -176,6 +176,15 @@ nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);col
 .clist a:hover{background:rgb(255 255 255/.1);border-color:var(--gold)}
 .clist small{color:var(--gold);opacity:1}
 @media(prefers-reduced-motion:reduce){.card,.cert{transition:none}.card:hover,.cert:hover{transform:none}}
+.cert .head{display:flex;gap:14px;align-items:flex-start}
+.cert .medal{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#b07a28);color:var(--navy)}
+.cert .medal svg{width:26px;height:26px}
+.certs.major .cert{border-top:3px solid var(--gold)}
+.cert .links{align-items:center}
+.cert .links a.vbtn{padding:0 16px;min-height:40px;border-radius:999px;background:var(--navy);color:#fff}
+.cert .links a.vbtn:hover{background:var(--wine);text-decoration:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .cert .links a.vbtn{background:var(--gold);color:var(--navy)}}
+:root[data-theme=dark] .cert .links a.vbtn{background:var(--gold);color:var(--navy)}
 /* lightbox */
 .lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100dvh;margin:0}
 .lb::backdrop{background:rgb(6 14 22/.88);backdrop-filter:blur(4px)}
@@ -403,7 +412,8 @@ nav .links a:hover,nav .links a:focus-visible{background:rgb(255 255 255/.1);col
       {img:'certificate-bridge.jpg', t:'BRIDGE Digital Skills Programme', o:'Lightful · digital strategy, campaigns, storytelling, measurement and impact', m:'6-month programme · Completed July 2025'}
     ]
   };
-  const card = c => `<article class="cert"><a class="thumb" href="${c.img}" aria-label="View ${c.t} certificate"><img src="${c.img}" alt="${c.t} certificate" loading="lazy"></a><div class="body"><h3>${c.t}</h3><p class="org">${c.o}</p>${c.pill?`<span class="pill">${c.pill}</span>`:''}<p class="meta">${c.m}</p><div class="links"><a href="${c.img}">View certificate</a>${c.v?`<a href="${c.v}">Verify online</a>`:''}</div></div></article>`;
+  const medal = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m12 6 1 2 2 .3-1.5 1.4.4 2.1-1.9-1-1.9 1 .4-2.1L9 8.3l2-.3z" fill="currentColor"/></svg>';
+  const card = c => `<article class="cert"><div class="body"><div class="head"><span class="medal">${medal}</span><div><h3>${c.t}</h3><p class="org">${c.o}</p></div></div>${c.pill?`<span class="pill">${c.pill}</span>`:''}<p class="meta">${c.m}</p><div class="links"><a class="vbtn" href="${c.img}">View certificate</a>${c.v?`<a href="${c.v}">Verify online ↗</a>`:''}</div></div></article>`;
   document.getElementById('certs-major').innerHTML = certs.major.map(card).join('');
   document.getElementById('certs-minor').innerHTML = certs.minor.map(card).join('');
 
