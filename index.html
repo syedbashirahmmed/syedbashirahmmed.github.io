@@ -272,6 +272,17 @@ html.js .reveal.in{opacity:1;transform:none}
 .stamp:hover{transform:rotate(0) scale(1.05);transition:transform .2s}
 @media(max-width:860px){.travel{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.stamp:hover{transition:none}}
+
+/* ---- expertise v2: structured, brand-consistent ---- */
+#services{gap:18px}
+#services .card{display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:16px;row-gap:6px;align-items:start;padding:22px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;background:var(--card);background-image:none}
+#services .card svg{grid-row:span 2;width:48px;height:48px;padding:12px;margin:0;border-radius:12px;background:var(--navy);color:var(--gold)}
+#services .card h3{font-size:16.5px;align-self:start;margin-top:2px}
+#services .card p{margin:0;font-size:14.5px;line-height:1.6}
+#services .card:hover{border-left-color:var(--wine)}
+#services .card:hover svg{background:var(--wine);color:#fff}
+#services .card svg{transition:background .2s,color .2s}
+@media(prefers-reduced-motion:reduce){#services .card svg{transition:none}}
 /* lightbox */
 .lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100dvh;margin:0}
 .lb::backdrop{background:rgb(6 14 22/.88);backdrop-filter:blur(4px)}
