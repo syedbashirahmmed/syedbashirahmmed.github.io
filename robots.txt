@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://syedbashirahmmed.github.io/sitemap.xml
