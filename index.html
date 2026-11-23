@@ -326,14 +326,26 @@ nav .avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow
 #services .card{grid-template-rows:auto 1fr;align-content:start}
 #services .card svg{grid-row:1 / span 2;align-self:start}
 #services .card h3{margin:2px 0 0}
+nav .brand{display:flex;align-items:center;gap:18px;text-decoration:none;color:inherit;border-radius:8px}
+nav .brand:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.totop{position:fixed;right:22px;bottom:22px;z-index:6;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--navy);text-decoration:none;box-shadow:0 10px 28px rgb(0 0 0/.32),inset 0 0 0 1px rgb(255 255 255/.25);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .25s,transform .25s,visibility .25s,background .2s}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:#e8bd66;transform:translateY(-3px)}
+.totop:focus-visible{outline:3px solid var(--wine);outline-offset:3px}
+.totop svg{width:22px;height:22px}
+html:not(.js) .totop{opacity:1;visibility:visible;transform:none}
+@media(max-width:600px){.totop{right:14px;bottom:14px;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.totop{transition:none}.totop:hover{transform:none}}
 </style>
 </head>
-<body>
+<body id="top">
 
 <nav aria-label="Main">
   <div class="wrap">
-    <img class="avatar" src="avatar.jpg" alt="" width="40" height="40">
-    <strong>Syed Bashir Ahmmed</strong>
+    <a class="brand" href="#top" aria-label="Back to top of page">
+      <img class="avatar" src="avatar.jpg" alt="" width="40" height="40">
+      <strong>Syed Bashir Ahmmed</strong>
+    </a>
     <div class="links">
       <a href="#expertise">Expertise</a>
       <a href="#journey">Journey</a>
@@ -603,6 +615,23 @@ nav .avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow
   const tools = ['Advanced Excel','Financial modelling','KPI dashboards','PowerPoint','IFRS / IAS','ISA','COSO internal control','Budgeting & forecasting','Bank & cash reconciliation','PAR & portfolio analysis'];
   document.getElementById('tools').innerHTML = tools.map(t => `<span>${t}</span>`).join('');
 }
+</script>
+<a class="totop" href="#top" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</a>
+<script>
+(() => {
+  const btn = document.querySelector('.totop');
+  const toggle = () => btn.classList.toggle('show', window.scrollY > 500);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  document.querySelectorAll('a[href="#top"]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    history.replaceState(null, '', location.pathname + location.search);
+  }));
+})();
 </script>
 </body>
 </html>
